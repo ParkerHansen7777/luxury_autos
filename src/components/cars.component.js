@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import './page.css';
 
 const Car = props => (
 	<tr>
-		<td>{props.car.make}</td>
-        <td>{props.car.model}</td>
-        <td>{props.car.seats}</td>
-		<td>{props.car.type}</td>
-        <td>{props.car.rental_price}</td>
+		<td className="img-container"><img className="picture" src={props.car.picture} /></td>
+		<td><span>{props.car.make}</span></td>
+        <td><span>{props.car.model}</span></td>
+        <td><span>{props.car.seats}</span></td>
+		<td><span>{props.car.type}</span></td>
+        <td><span>{props.car.rental_price}</span></td>
 	</tr>
 )
 
@@ -52,7 +53,7 @@ export default class CarsList extends Component {
                 <table class="table table-striped">
                   <thead class="table table-bordered table-dark">
                         <tr>
-                            
+                            <th>Picture</th>
 							<th>Make</th>
 							<th>Model</th>
 							<th>Seats</th>

@@ -3,7 +3,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const carSchema = new Schema({
-    make: {
+    
+	picture: {
+		type: String,
+        required: true,
+        trim: true
+	},
+	make: {
         type: String,
         required: true,
         trim: true

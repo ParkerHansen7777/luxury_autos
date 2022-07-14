@@ -1,4 +1,4 @@
-.App-header {
+.Page-header {
 	  background-color: black;
 	  min-height: 5vh;
 	  display: flex;
@@ -8,13 +8,13 @@
 	  padding-left: 4vw;
 }
 
-.App-header a{
+.Page-header a{
 	text-decoration: none;
 	display: inline-block;
 	font-size: 20pt;
 }
 
-.App-header a > img{
+.Page-header a > img{
 	vertical-align: middle;
 }
 
@@ -24,17 +24,17 @@
 	padding-bottom: 2vh;
 }
 
-.App-footer {
+.Page-footer {
 	background: #DDE0E3;
     padding: 15px 10px;
-    position: sticky;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
 	text-align: center;
 }
 
-.Page{
+.Page-body{
 	padding: 25px 150px;
 }
 

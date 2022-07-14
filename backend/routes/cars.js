@@ -8,7 +8,8 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const make = req.body.make;
+    const picture = req.body.picture;
+	const make = req.body.make;
 	const model = req.body.model;
     const seats = req.body.seats;
 	const type = req.body.type;
@@ -17,6 +18,7 @@ router.route('/add').post((req, res) => {
 	
 
     const newCar = new Car({
+		picture,
 		make, 
 		model,
         seats,
@@ -45,6 +47,7 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     Car.findById(req.params.id)
         .then(car => {
+			car.picture = req.body.picture
             car.make = req.body.make;
             car.model = req.body.model;
             car.seats = req.body.seats;

@@ -6,6 +6,7 @@ export default class NewCar extends Component {
 constructor(props) {
         super(props);
 		
+		this.onChangePicture = this.onChangePicture.bind(this);
 		this.onChangeMake = this.onChangeMake.bind(this);
         this.onChangeModel = this.onChangeModel.bind(this);
 		this.onChangeSeats = this.onChangeSeats.bind(this);
@@ -14,7 +15,8 @@ constructor(props) {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            make: '',
+            picture: '',
+			make: '',
 			model: '',
             seats: '',
 			type: '',
@@ -22,6 +24,12 @@ constructor(props) {
         }
     }
 	
+	
+	onChangePicture(e) {
+        this.setState({
+            picture: e.target.value
+        });
+    }
 	
 	onChangeMake(e) {
         this.setState({
@@ -57,7 +65,8 @@ constructor(props) {
         e.preventDefault();
 
         const car = {
-            make: this.state.make,
+            picture: this.state.picture,
+			make: this.state.make,
 			model: this.state.model,
             seats: this.state.seats,
 			type: this.state.type,
@@ -79,6 +88,15 @@ constructor(props) {
                 <h3>Add New Car</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
+                        <label>Picture: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.picture}
+                            onChange={this.onChangePicture}
+                            />
+                    </div>
+					<div className="form-group">
                         <label>Make: </label>
                         <input type="text"
                             required
