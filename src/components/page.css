@@ -1,3 +1,4 @@
+
 .Page-header {
 	  background-color: black;
 	  min-height: 5vh;
@@ -27,15 +28,16 @@
 .Page-footer {
 	background: #DDE0E3;
     padding: 15px 10px;
-    position: absolute;
-    bottom: 0;
+    position: fixed;
     left: 0;
-    right: 0;
+    bottom: 0;
+	width: 100%;
 	text-align: center;
 }
 
 .Page-body{
 	padding: 25px 150px;
+	background-color: black;
 }
 
 .img-container {
@@ -46,5 +48,14 @@
 .picture{
 	
 	max-width: 267px;
+}
+
+.form-group{
+	
+	padding-top: 20px;
+}
+
+.form-label, .form-heading {
+	color: white;
 }
 

@@ -4,7 +4,7 @@ import './page.css';
 
 const Car = props => (
 	<tr>
-		<td className="img-container"><img className="picture" src={props.car.picture} /></td>
+		<td className="img-container"><img className="picture" src={props.car.picture} alt="" /></td>
 		<td><span>{props.car.make}</span></td>
         <td><span>{props.car.model}</span></td>
         <td><span>{props.car.seats}</span></td>
@@ -50,8 +50,8 @@ export default class CarsList extends Component {
     
     render(){
         return(
-                <table class="table table-striped">
-                  <thead class="table table-bordered table-dark">
+                <table class="table table-striped table-dark">
+                  <thead class="table table-bordered table-light">
                         <tr>
                             <th>Picture</th>
 							<th>Make</th>
@@ -65,7 +65,7 @@ export default class CarsList extends Component {
                     <tbody className="tbody">
                         { this.carList() }
                     </tbody>
-                </table>
+					</table>
 		)
 	}
 }

@@ -1,19 +1,16 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Home from './components/home.component';
-
-
+import NewCar from './components/new_car.component'
+import './components/page.css'
 function App() {
   return (
     
-    <BrowserRouter> 
-    <Redirect from='/' to='/Home' />
-      <Switch>
-        <Route path ="/Home">
-         <Home />
-        </Route>
+		<Switch>
+			<Route exact path="/" component={ Home } />
+			<Route path="/cars" component={ NewCar } />
 		</Switch>
-  </BrowserRouter> 
+	
   );
 }
 
