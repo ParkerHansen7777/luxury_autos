@@ -15,6 +15,10 @@ export default class Home extends Component {
 			</a>
 		  </header>
 		  <body className="Page-body">
+			<form class="row">
+				<label>Search</label>
+				<input type="text"></input>
+			</form>
 			<CarsList />
 		  </body>
 		  <footer className="Page-footer"><p>Luxury Autos® <Link to="/cars">AddCar</Link></p><span>Created by Pramado (© 2022)</span></footer>

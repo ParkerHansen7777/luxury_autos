@@ -6,7 +6,6 @@ const carSchema = new Schema({
     
 	picture: {
 		type: String,
-        required: true,
         trim: true
 	},
 	make: {
