@@ -17,7 +17,7 @@ export default class Home extends Component {
 		  <body className="Page-body">
 			<form class="row">
 				<label>Search</label>
-				<input type="text"></input>
+				<input type="search"></input>
 			</form>
 			<CarsList />
 		  </body>
