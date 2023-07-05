@@ -23,7 +23,7 @@ export default class CarsList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/cars/')
+        axios.get('https://cardealer-backend-ixph.onrender.com/cars/')
             .then(response => {
                 this.setState({ cars: response.data })
             })
@@ -33,7 +33,7 @@ export default class CarsList extends Component {
     }
 
     deleteCar(id) {
-        axios.delete('http://localhost:5000/cars/'+id)
+        axios.delete('https://cardealer-backend-ixph.onrender.com/cars/'+id)
             .then(res => console.log(res.data));
 
         this.setState({
