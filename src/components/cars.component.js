@@ -42,7 +42,7 @@ export default class CarsList extends Component {
     }   
     
     carList() {
-        return this.state.cars.map(currentcar => {
+        return this.state.cars.map(currentcar => { 
             return <Car car={currentcar} deleteCar={this.deleteCar} key={currentcar._id}/>; 
         })
     }

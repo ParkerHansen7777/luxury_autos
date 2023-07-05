@@ -2,7 +2,7 @@ import './page.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import CarsList from './cars.component';
-import NewCar from './new_car.component';
+//import NewCar from './new_car.component';
 
 export default class Home extends Component {
 	render(){
@@ -15,10 +15,6 @@ export default class Home extends Component {
 			</a>
 		  </header>
 		  <body className="Page-body">
-			<form class="row">
-				<label>Search</label>
-				<input type="search"></input>
-			</form>
 			<CarsList />
 		  </body>
 		  <footer className="Page-footer"><p>Luxury Autos® <Link to="/cars">AddCar</Link></p><span>Created by Pramado (© 2022)</span></footer>
