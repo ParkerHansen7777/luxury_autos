@@ -75,7 +75,7 @@ constructor(props) {
 
         console.log(car);
 
-        axios.post('http://localhost:5000/cars/add', car)
+        axios.post('https://cardealer-backend-ixph.onrender.com/cars/add', car)
             .then(res => console.log(res.data));
        
 	   window.location = '/';
