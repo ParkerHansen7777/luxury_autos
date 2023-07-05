@@ -4,11 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install-server": "cd backend && npm install",
-    "start-server": "cd backend && node server.js",
-    "install-client": "npm install",
-    "build-client": "npm run build",
-    "start-client": "npm run start"
   },
   "author": "",
   "license": "ISC",
