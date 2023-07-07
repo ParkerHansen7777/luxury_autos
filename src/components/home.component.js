@@ -17,7 +17,7 @@ export default class Home extends Component {
 		  <body className="Page-body">
 			<CarsList />
 		  </body>
-		  <footer className="Page-footer"><p>Luxury Autos® <Link to="/cars">AddCar</Link></p><span>Created by Pramado (© 2022)</span></footer>
+		  <footer className="Page-footer"><p>Luxury Autos® <Link to="/cars">AddCar</Link></p><span>Created by Parker (© 2022)</span></footer>
 		</div>
 	  )
 	}
