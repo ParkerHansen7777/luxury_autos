@@ -49,7 +49,14 @@ export default class CarsList extends Component {
 
     
     render(){
+        
+        let connected;
+        if(this.state.cars.length < 1){
+           connected = <h1>Backend spinning up....please wait a few seconds</h1>;
+        }
+        
         return(
+                
                 <table class="table table-striped table-dark">
                   <thead class="table table-bordered table-light">
                         <tr>
@@ -62,6 +69,9 @@ export default class CarsList extends Component {
 							
                         </tr>
                     </thead>
+                    <div>
+                {connected}
+                </div>
                     <tbody className="tbody">
                         { this.carList() }
                     </tbody>
