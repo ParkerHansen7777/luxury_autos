@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './page.css';
+import EditCar from './edit_car.component';
 
 const Car = props => (
 	<tr>
@@ -10,6 +11,7 @@ const Car = props => (
         <td><span>{props.car.seats}</span></td>
 		<td><span>{props.car.type}</span></td>
         <td><span>{props.car.rental_price}</span></td>
+        <td><button className="button-del" onClick={() => { props.deleteCar(props.car._id) }}>delete</button></td>
 	</tr>
 )
 
@@ -18,7 +20,7 @@ export default class CarsList extends Component {
         super(props);
 
         this.deleteCar = this.deleteCar.bind(this);
-        this.state = {cars: []};
+        this.state = {cars: [], editting: false};
 
     }
 
@@ -54,28 +56,35 @@ export default class CarsList extends Component {
         if(this.state.cars.length < 1){
            connected = <h1>Backend spinning up....please wait a few seconds</h1>;
         }
+
         
         return(
-                
-                <table class="table table-striped table-dark">
-                  <thead class="table table-bordered table-light">
-                        <tr>
-                            <th>Picture</th>
-							<th>Make</th>
-							<th>Model</th>
-							<th>Seats</th>
-							<th>Type</th>
-							<th>Rental Price</th>
-							
-                        </tr>
-                    </thead>
+                <div> 
                     <div>
-                {connected}
+                        {connected}
+                    </div>
+                    <table className="table table-striped table-dark">
+                    <thead className="table table-bordered table-light">
+                            <tr>
+                                <th>Picture</th>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Seats</th>
+                                <th>Type</th>
+                                <th>Rental Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody className="tbody">
+                            { this.carList() }
+                        </tbody>
+                    </table>
+                    <div>
+                        <button onClick={() => this.state.editting ? this.setState ({editting: false})  : this.setState ({editting: true}) }>Edit Entry</button><button>Delete Entry</button>
+                        {this.state.editting ? <EditCar /> : null}
+                    </div>    
                 </div>
-                    <tbody className="tbody">
-                        { this.carList() }
-                    </tbody>
-					</table>
 		)
 	}
 }

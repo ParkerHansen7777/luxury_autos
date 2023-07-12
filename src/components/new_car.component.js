@@ -152,7 +152,7 @@ constructor(props) {
 							<input type="submit" value="Create Car" className="btn btn-primary" />
 						</div>
 					</form>
-				<footer className="Page-footer"><p>Luxury Autos® <Link to="/">Catalog</Link></p><span>Created by Pramado (© 2023)</span></footer>
+				<footer className="Page-footer"><p>Luxury Autos® <Link to="/">Catalog</Link></p><span>Created by Parker (© 2023)</span></footer>
 				</body>
 			</div>
         )
