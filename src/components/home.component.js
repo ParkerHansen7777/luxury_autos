@@ -1,6 +1,5 @@
 import './page.css';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import CarsList from './cars.component';
 //import NewCar from './new_car.component';
 
