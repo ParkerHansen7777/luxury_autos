@@ -111,12 +111,12 @@ export default class EditCar extends Component {
         render(){
             return(
                 
-                <div>
-                    <div>
-                        <h3>Edit Car entry</h3>
+                <div className="Page">
+                    <div className="Page-body">
+                        <h3 className="form-heading">Edit Car entry</h3>
                         <form onSubmit={this.onSubmit}> 
                         <div className="form-group">
-                            <label>Car: </label>
+                            <label className="form-label">Car: </label>
                             <select ref="userInput"
                                 required
                                 className="form-control"
@@ -133,7 +133,7 @@ export default class EditCar extends Component {
                             </select>
                         </div>
                         <div className="form-group">
-                            <label>Picture: </label>
+                            <label className="form-label">Picture: </label>
                             <input type="text"
                                 
                                 className="form-control"
@@ -142,7 +142,7 @@ export default class EditCar extends Component {
                                 />
                         </div>
                         <div className="form-group">
-                            <label>Make: </label>
+                            <label className="form-label">Make: </label>
                             <input type="text"
                                 required
                                 className="form-control"
@@ -151,7 +151,7 @@ export default class EditCar extends Component {
                                 />
                         </div>
                         <div className="form-group">
-                            <label>Model: </label>
+                            <label className="form-label">Model: </label>
                             <input type="text"
                                 required
                                 className="form-control"
@@ -160,7 +160,7 @@ export default class EditCar extends Component {
                                 />
                         </div>
                         <div className="form-group">
-                            <label>Seats: </label>
+                            <label className="form-label">Seats: </label>
                             <input type="text"
                                 required
                                 className="form-control"
@@ -169,7 +169,7 @@ export default class EditCar extends Component {
                                 />
                         </div>
                         <div className="form-group">
-                            <label>Type: </label>
+                            <label className="form-label">Type: </label>
                             <input type="text"
                                 required
                                 className="form-control"

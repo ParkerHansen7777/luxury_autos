@@ -21,6 +21,12 @@
 	vertical-align: middle;
 }
 
+.flex-box{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
 .LA_span {
 	font-family: 'Oswald', sans-serif;
 	color: gold;
@@ -38,6 +44,7 @@
 }
 
 .Page-body{
+	height: 100%;
 	padding: 25px 150px;
 	background-color: black;
 }

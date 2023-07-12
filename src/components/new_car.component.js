@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+
 
 export default class NewCar extends Component {
 constructor(props) {
@@ -77,12 +77,6 @@ constructor(props) {
 	render(){
         return(
             <div className="Page">
-                <header className="Page-header">
-					<a href="/">
-						<img src="https://cdn.discordapp.com/attachments/934601346638811137/969044874055803000/la_logo_transp_2000x2000.png" width="125" height="125" alt=""/>
-						<span className="LA_span">Luxury Autos Car Dealership</span>
-					</a>
-				</header>
 				<div className="Page-body">
 					<h3 className="form-heading" >Add New Car</h3>
 					<form onSubmit={this.onSubmit}>
@@ -135,7 +129,6 @@ constructor(props) {
 							<input type="submit" value="Create Car" className="btn btn-primary" />
 						</div>
 					</form>
-				<footer className="Page-footer"><p>Luxury Autos® <Link to="/">Catalog</Link></p><span>Created by Parker (© 2023)</span></footer>
 				</div>
 			</div>
         )
