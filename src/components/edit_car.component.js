@@ -10,7 +10,6 @@ export default class EditCar extends Component {
             this.onChangeModel = this.onChangeModel.bind(this);
             this.onChangeSeats = this.onChangeSeats.bind(this);
             this.onChangeType = this.onChangeType.bind(this);
-            this.onChangeRental = this.onChangeRental.bind(this);
             this.onChangeiD = this.onChangeiD.bind(this);
             this.onSubmit = this.onSubmit.bind(this);
 
@@ -21,8 +20,7 @@ export default class EditCar extends Component {
                 make: '',
                 model: '',
                 seats: '',
-                type: '',
-                rental_price: ''
+                type: ''
             }
         }
 
@@ -69,12 +67,6 @@ export default class EditCar extends Component {
             });
         }
         
-        onChangeRental(e) {
-            this.setState({
-                rental_price: e.target.value
-            });
-        }
-
         onChangeiD(e){
             
             console.log('Logging: ' + e.target.value)
@@ -87,8 +79,7 @@ export default class EditCar extends Component {
                     make: response.data.make,
                     model: response.data.model,
                     seats: response.data.seats,
-                    type: response.data.type,
-                    rental_price: response.data.rental_price, 
+                    type: response.data.type, 
                 });   
             })
             .catch(function (error) {
@@ -106,7 +97,6 @@ export default class EditCar extends Component {
                 model: this.state.model,
                 seats: this.state.seats,
                 type: this.state.type,
-                rental_price: this.state.rental_price,
             }
 
             console.log(car);
@@ -136,7 +126,7 @@ export default class EditCar extends Component {
                                     this.state.cars.map(car => {
                                         return <option
                                         key={car._id}
-                                        value={car._id}>{car.model}
+                                        value={car._id}>{car.make + ' ' + car.model}
                                         </option>
                                     })
                                 }
@@ -145,7 +135,7 @@ export default class EditCar extends Component {
                         <div className="form-group">
                             <label>Picture: </label>
                             <input type="text"
-                                required
+                                
                                 className="form-control"
                                 value={this.state.picture}
                                 onChange={this.onChangePicture}
@@ -185,15 +175,6 @@ export default class EditCar extends Component {
                                 className="form-control"
                                 value={this.state.type}
                                 onChange={this.onChangeType}
-                                />
-                        </div>
-                        <div className="form-group">
-                            <label>Rental Price: </label>
-                            <input type="text"
-                                required
-                                className="form-control"
-                                value={this.state.rental_price}
-                                onChange={this.onChangeRental}
                                 />
                         </div>
                         <div className="form-group">

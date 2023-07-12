@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './page.css';
 import EditCar from './edit_car.component';
+import NewCar from './new_car.component'
 
 const Car = props => (
 	<tr>
@@ -10,8 +11,6 @@ const Car = props => (
         <td><span>{props.car.model}</span></td>
         <td><span>{props.car.seats}</span></td>
 		<td><span>{props.car.type}</span></td>
-        <td><span>{props.car.rental_price}</span></td>
-        <td><button className="button-del" onClick={() => { props.deleteCar(props.car._id) }}>delete</button></td>
 	</tr>
 )
 
@@ -20,7 +19,8 @@ export default class CarsList extends Component {
         super(props);
 
         this.deleteCar = this.deleteCar.bind(this);
-        this.state = {cars: [], editting: false};
+        this.setID = this.setID.bind(this);
+        this.state = {cars: [], adding: false, editting: false, deleting: false, iD: ''};
 
     }
 
@@ -34,13 +34,23 @@ export default class CarsList extends Component {
             })
     }
 
+    setID(e){
+        this.setState({
+            iD: e.target.value
+        });
+    }
+    
     deleteCar(id) {
-        axios.delete('http://localhost:5000/cars/'+id)
+       
+        id.preventDefault();
+        axios.delete('http://localhost:5000/cars/'+this.state.iD)
             .then(res => console.log(res.data));
 
         this.setState({
             cars: this.state.cars.filter(el => el._id !== id)
         })
+
+        window.location = '/';
     }   
     
     carList() {
@@ -71,8 +81,6 @@ export default class CarsList extends Component {
                                 <th>Model</th>
                                 <th>Seats</th>
                                 <th>Type</th>
-                                <th>Rental Price</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         
@@ -81,8 +89,37 @@ export default class CarsList extends Component {
                         </tbody>
                     </table>
                     <div>
-                        <button onClick={() => this.state.editting ? this.setState ({editting: false})  : this.setState ({editting: true}) }>Edit Entry</button><button>Delete Entry</button>
+                        <button onClick={() => this.state.adding ? this.setState ({adding: false})  : this.setState ({adding: true}) }>Add Entry</button>
+                        <button onClick={() => this.state.editting ? this.setState ({editting: false})  : this.setState ({editting: true}) }>Edit Entry</button>
+                        <button onClick={() => this.state.deleting ? this.setState ({deleting: false}) : this.setState({deleting: true})}>Delete Entry</button>
+                        {this.state.adding ? <NewCar /> : null}
                         {this.state.editting ? <EditCar /> : null}
+                        {this.state.deleting ? 
+                            <form onSubmit={this.deleteCar}> 
+                                <div className="form-group">
+                                    <label>Car: </label>
+                                    <select ref="userInput"
+                                        required
+                                        className="form-control"
+                                        onChange={this.setID}
+                                        >
+                                            <option value=''></option>
+                                        {
+                                            this.state.cars.map(car => {
+                                                return <option
+                                                key={car._id}
+                                                value={car._id}>{car.make + ' ' + car.model}
+                                                </option>
+                                            })
+                                        }
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <input type="submit" value="Delete Entry" className="btn btn-primary" />
+                                </div>
+                            </form>
+                            
+                            : null}
                     </div>    
                 </div>
 		)

@@ -11,7 +11,6 @@ constructor(props) {
         this.onChangeModel = this.onChangeModel.bind(this);
 		this.onChangeSeats = this.onChangeSeats.bind(this);
 		this.onChangeType = this.onChangeType.bind(this);
-		this.onChangeRental = this.onChangeRental.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -20,7 +19,6 @@ constructor(props) {
 			model: '',
             seats: '',
 			type: '',
-            rental_price: '',
         }
     }
 	
@@ -55,12 +53,7 @@ constructor(props) {
         });
     }
 	
-	onChangeRental(e) {
-        this.setState({
-            rental_price: e.target.value
-        });
-    }
-	
+
 	onSubmit(e) {
         e.preventDefault();
 
@@ -70,7 +63,6 @@ constructor(props) {
 			model: this.state.model,
             seats: this.state.seats,
 			type: this.state.type,
-            rental_price: this.state.rental_price,
         }
 
         console.log(car);
@@ -91,7 +83,7 @@ constructor(props) {
 						<span className="LA_span">Luxury Autos Car Dealership</span>
 					</a>
 				</header>
-				<body className="Page-body">
+				<div className="Page-body">
 					<h3 className="form-heading" >Add New Car</h3>
 					<form onSubmit={this.onSubmit}>
 						<div className="form-group">
@@ -140,20 +132,11 @@ constructor(props) {
 								/>
 						</div>
 						<div className="form-group">
-							<label className="form-label">Rental Price: </label>
-							<input type="text"
-								required
-								className="form-control"
-								value={this.state.name}
-								onChange={this.onChangeRental}
-								/>
-						</div>
-						<div className="form-group">
 							<input type="submit" value="Create Car" className="btn btn-primary" />
 						</div>
 					</form>
 				<footer className="Page-footer"><p>Luxury Autos® <Link to="/">Catalog</Link></p><span>Created by Parker (© 2023)</span></footer>
-				</body>
+				</div>
 			</div>
         )
     }
