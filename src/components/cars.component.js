@@ -33,7 +33,9 @@ export default class CarsList extends Component {
     }
 
     deleteCar(id) {
-        axios.delete('https://cardealer-backend-ixph.onrender.com/cars/'+id)
+        
+        id.preventDefault()
+        axios.delete('https://cardealer-backend-ixph.onrender.com/cars/'+this.state.iD)
             .then(res => console.log(res.data));
 
         this.setState({
