@@ -111,78 +111,78 @@ export default class EditCar extends Component {
         render(){
             return(
                 
-                <div className="Page">
-                    <div className="Page-body">
-                        <h3 className="form-heading">Edit Car entry</h3>
-                        <form onSubmit={this.onSubmit}> 
-                        <div className="form-group">
-                            <label className="form-label">Car: </label>
-                            <select ref="userInput"
-                                required
-                                className="form-control"
-                                onChange={this.onChangeiD}>
-                                    <option value=''></option>
-                                {
-                                    this.state.cars.map(car => {
-                                        return <option
-                                        key={car._id}
-                                        value={car._id}>{car.make + ' ' + car.model}
-                                        </option>
-                                    })
-                                }
-                            </select>
-                        </div>
-                        <div className="form-group">
-                            <label className="form-label">Picture: </label>
-                            <input type="text"
-                                
-                                className="form-control"
-                                value={this.state.picture}
-                                onChange={this.onChangePicture}
-                                />
-                        </div>
-                        <div className="form-group">
-                            <label className="form-label">Make: </label>
-                            <input type="text"
-                                required
-                                className="form-control"
-                                value={this.state.make}
-                                onChange={this.onChangeMake}
-                                />
-                        </div>
-                        <div className="form-group">
-                            <label className="form-label">Model: </label>
-                            <input type="text"
-                                required
-                                className="form-control"
-                                value={this.state.model}
-                                onChange={this.onChangeModel}
-                                />
-                        </div>
-                        <div className="form-group">
-                            <label className="form-label">Seats: </label>
-                            <input type="text"
-                                required
-                                className="form-control"
-                                value={this.state.seats}
-                                onChange={this.onChangeSeats}
-                                />
-                        </div>
-                        <div className="form-group">
-                            <label className="form-label">Type: </label>
-                            <input type="text"
-                                required
-                                className="form-control"
-                                value={this.state.type}
-                                onChange={this.onChangeType}
-                                />
-                        </div>
-                        <div className="form-group">
-                            <input type="submit" value="Submit Changes" className="btn btn-primary" />
-                        </div>
-                        </form>
-                    </div>    
-                </div>
+                
+                <div className="container">
+                    <h3 className="form-heading">Edit Car entry</h3>
+                    <form onSubmit={this.onSubmit}> 
+                    <div className="form-group">
+                        <label className="form-label">Car: </label>
+                        <select ref="userInput"
+                            required
+                            className="form-control"
+                            onChange={this.onChangeiD}>
+                                <option value=''></option>
+                            {
+                                this.state.cars.map(car => {
+                                    return <option
+                                    key={car._id}
+                                    value={car._id}>{car.make + ' ' + car.model}
+                                    </option>
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Picture: </label>
+                        <input type="text"
+                            
+                            className="form-control"
+                            value={this.state.picture}
+                            onChange={this.onChangePicture}
+                            />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Make: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.make}
+                            onChange={this.onChangeMake}
+                            />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Model: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.model}
+                            onChange={this.onChangeModel}
+                            />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Seats: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.seats}
+                            onChange={this.onChangeSeats}
+                            />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Type: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.type}
+                            onChange={this.onChangeType}
+                            />
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" value="Edit Entry" className="btn btn-primary" />
+                    </div>
+                    </form>
+                </div>    
+                
                 
             )
         }

@@ -76,9 +76,9 @@ constructor(props) {
 	
 	render(){
         return(
-            <div className="Page">
-				<div className="Page-body">
-					<h3 className="form-heading" >Add New Car</h3>
+            
+				<div className="container">
+					<h3 className="form-heading" >Add New Car entry</h3>
 					<form onSubmit={this.onSubmit}>
 						<div className="form-group">
 							<label className="form-label" >Picture: </label>
@@ -126,11 +126,11 @@ constructor(props) {
 								/>
 						</div>
 						<div className="form-group">
-							<input type="submit" value="Create Car" className="btn btn-primary" />
+							<input type="submit" value="Create Entry" className="btn btn-primary" />
 						</div>
 					</form>
 				</div>
-			</div>
+			
         )
     }
 

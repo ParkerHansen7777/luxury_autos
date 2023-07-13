@@ -97,7 +97,7 @@ export default class CarsList extends Component {
                             {this.state.adding ? <NewCar /> : null}
                             {this.state.editting ? <EditCar /> : null}
                             {this.state.deleting ? 
-                                <div className="Page-body">
+                                <div className="container">
                                      <h3 className="form-heading">Delete Car entry</h3>
                                     <form onSubmit={this.deleteCar}> 
                                         <div className="form-group">
