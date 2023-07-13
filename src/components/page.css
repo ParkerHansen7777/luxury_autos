@@ -1,22 +1,35 @@
+html, body { height: 100% }
 
-.Page-header {
-	  background-color: black;
-	  min-height: 5vh;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  color: gold;
-	  padding-left: 4vw;
+.Page{
+	margin: auto;
+	background-color: rgb(255, 255, 255);
+	
+	
 }
-
+.Page-header {
+	background-color: rgb(0, 0, 0);  
+	min-height: 5vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: gold;
+	padding-left: 4vw;
+}
 .Page-header a{
 	text-decoration: none;
 	display: inline-block;
 	font-size: 20pt;
 }
 
+
 .Page-header a > img{
 	vertical-align: middle;
+}
+
+.flex-box{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
 }
 
 .LA_span {
@@ -25,19 +38,24 @@
 	padding-bottom: 2vh;
 }
 
+.Page-body{
+	min-height: 80vh;
+	padding: 25px 150px;
+	background-color: black;
+}
+
 .Page-footer {
+	width: 100%;
+	position: relative;
 	background: #DDE0E3;
     padding: 15px 10px;
-    position: fixed; 
     left: 0;
     bottom: 0;
-	width: 100%;
 	text-align: center;
 }
 
-.Page-body{
+.container{
 	padding: 25px 150px;
-	background-color: black;
 }
 
 .img-container {

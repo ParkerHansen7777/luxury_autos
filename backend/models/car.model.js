@@ -30,11 +30,7 @@ const carSchema = new Schema({
         required: true,
         trim: true
     },
-	rental_price: {
-        type: String,
-        required: true,
-        trim: true
-    },
+	
 }, {
     timestamps: true,
 });

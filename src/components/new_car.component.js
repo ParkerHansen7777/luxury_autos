@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+
 
 export default class NewCar extends Component {
 constructor(props) {
@@ -11,7 +11,6 @@ constructor(props) {
         this.onChangeModel = this.onChangeModel.bind(this);
 		this.onChangeSeats = this.onChangeSeats.bind(this);
 		this.onChangeType = this.onChangeType.bind(this);
-		this.onChangeRental = this.onChangeRental.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -20,7 +19,6 @@ constructor(props) {
 			model: '',
             seats: '',
 			type: '',
-            rental_price: '',
         }
     }
 	
@@ -55,12 +53,7 @@ constructor(props) {
         });
     }
 	
-	onChangeRental(e) {
-        this.setState({
-            rental_price: e.target.value
-        });
-    }
-	
+
 	onSubmit(e) {
         e.preventDefault();
 
@@ -70,7 +63,6 @@ constructor(props) {
 			model: this.state.model,
             seats: this.state.seats,
 			type: this.state.type,
-            rental_price: this.state.rental_price,
         }
 
         console.log(car);
@@ -84,15 +76,9 @@ constructor(props) {
 	
 	render(){
         return(
-            <div className="Page">
-                <header className="Page-header">
-					<a href="/">
-						<img src="https://cdn.discordapp.com/attachments/934601346638811137/969044874055803000/la_logo_transp_2000x2000.png" width="125" height="125" alt=""/>
-						<span className="LA_span">Luxury Autos Car Dealership</span>
-					</a>
-				</header>
-				<body className="Page-body">
-					<h3 className="form-heading" >Add New Car</h3>
+            
+				<div className="container">
+					<h3 className="form-heading" >Add New Car entry</h3>
 					<form onSubmit={this.onSubmit}>
 						<div className="form-group">
 							<label className="form-label" >Picture: </label>
@@ -140,21 +126,11 @@ constructor(props) {
 								/>
 						</div>
 						<div className="form-group">
-							<label className="form-label">Rental Price: </label>
-							<input type="text"
-								required
-								className="form-control"
-								value={this.state.name}
-								onChange={this.onChangeRental}
-								/>
-						</div>
-						<div className="form-group">
-							<input type="submit" value="Create Car" className="btn btn-primary" />
+							<input type="submit" value="Create Entry" className="btn btn-primary" />
 						</div>
 					</form>
-				<footer className="Page-footer"><p>Luxury Autos® <Link to="/">Catalog</Link></p><span>Created by Pramado (© 2023)</span></footer>
-				</body>
-			</div>
+				</div>
+			
         )
     }
 
