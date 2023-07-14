@@ -20,7 +20,9 @@ export default class CarsList extends Component {
 
         this.deleteCar = this.deleteCar.bind(this);
         this.setID = this.setID.bind(this);
-        this.state = {cars: [], adding: false, editting: false, deleting: false, iD: ''};
+        this.setPassword= this.setPassword.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.state = {cars: [], password: '', employee: false, adding: false, editting: false, deleting: false, iD: ''};s
 
     }
 
@@ -60,7 +62,20 @@ export default class CarsList extends Component {
         })
     }
 
+    setPassword(e){
+        this.setState({
+            password: e.target.value
+        });
+    }
     
+    
+    onSubmit(e){
+        e.preventDefault();
+        
+        if(this.state.password === 'admin') { this.setState({
+            employee: true
+        }) }
+    }
     render(){
         
         let connected;
@@ -89,11 +104,13 @@ export default class CarsList extends Component {
                             { this.carList() }
                         </tbody>
                     </table>
+                    {this.state.employee ?
                     <div>
                         <h3 className="form-heading">Employee Menu</h3>  
                         <button onClick={() => this.state.adding ? this.setState ({adding: false})  : this.setState ({adding: true, editting: false, deleting: false}) }>Add Entry</button>
                         <button onClick={() => this.state.editting ? this.setState ({editting: false})  : this.setState ({editting: true, adding: false, deleting: false}) }>Edit Entry</button>
                         <button onClick={() => this.state.deleting ? this.setState ({deleting: false}) : this.setState({deleting: true, adding: false, editting: false})}>Delete Entry</button>
+                        <button onClick={() => this.setState({password: '', employee: false})}>Logout</button>
                         <div>    
                             {this.state.adding ? <NewCar /> : null}
                             {this.state.editting ? <EditCar /> : null}
@@ -126,7 +143,19 @@ export default class CarsList extends Component {
                                 </div>
                                 : null}
                         </div>  
-                    </div>    
+                        </div> : <div className="container">
+                                    <h3 className="form-heading">Employee login</h3>
+                                    <form onSubmit={this.onSubmit}>
+                                        <div className="form-group">
+                                            <input type="password"
+                                                className="form-control"
+                                                placeholder='enter employee password, to try out type in &apos;admin&apos; without quotes and hit enter'
+                                                onChange={this.setPassword}
+                                                />
+                                        </div>
+                                    </form>
+                                </div> }    
+        
                 </div>
 		)
 	}
