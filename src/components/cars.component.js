@@ -22,7 +22,7 @@ export default class CarsList extends Component {
         this.setID = this.setID.bind(this);
         this.setPassword= this.setPassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.state = {cars: [], password: '', employee: false, adding: false, editting: false, deleting: false, iD: ''};s
+        this.state = {cars: [], password: '', employee: false, adding: false, editting: false, deleting: false, iD: ''};
 
     }
 
