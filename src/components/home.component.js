@@ -1,6 +1,5 @@
 import './page.css';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import CarsList from './cars.component';
 //import NewCar from './new_car.component';
 
@@ -14,10 +13,10 @@ export default class Home extends Component {
 				<span className="LA_span">Luxury Autos Car Dealership</span>
 			</a>
 		  </header>
-		  <body className="Page-body">
+		  <div className="Page-body">
 			<CarsList />
-		  </body>
-		  <footer className="Page-footer"><p>Luxury Autos® <Link to="/cars">AddCar</Link></p><span>Created by Pramado (© 2022)</span></footer>
+		  </div>
+		  <footer className="Page-footer"><p>Luxury Autos®</p><span>Created by Parker (© 2022)</span></footer>
 		</div>
 	  )
 	}

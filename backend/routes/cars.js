@@ -13,7 +13,6 @@ router.route('/add').post((req, res) => { //route to add a car
 	const model = req.body.model;
     const seats = req.body.seats;
 	const type = req.body.type;
-    const rental_price = req.body.rental_price;
 	
 	
 
@@ -23,7 +22,6 @@ router.route('/add').post((req, res) => { //route to add a car
 		model,
         seats,
 		type,
-        rental_price
 	});
     
     newCar.save()                   //saves the car to the database
@@ -52,7 +50,6 @@ router.route('/update/:id').post((req, res) => { //updates a car in the data bas
             car.model = req.body.model;
             car.seats = req.body.seats;
 			car.type = req.body.type;
-            car.rental_price = req.body.rental_price;
             
             car.save()
                 .then(() => res.json('Car updated!'))
