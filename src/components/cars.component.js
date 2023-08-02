@@ -80,7 +80,7 @@ export default class CarsList extends Component {
         
         let connected;
         if(this.state.cars.length < 1){
-           connected = <h1>Backend spinning up....please wait a few seconds</h1>;
+           connected = <h3 className="form-heading">Backend spinning up....please wait a few seconds</h3>;
         }
 
         
