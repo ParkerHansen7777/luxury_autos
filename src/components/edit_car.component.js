@@ -25,7 +25,7 @@ export default class EditCar extends Component {
         }
 
         componentDidMount() {
-            axios.get('http://localhost:5000/cars/')
+            axios.get('https://cardealer-backend-ixph.onrender.com/cars/')
                 .then(response => {
                         this.setState({ cars: response.data })
                 })
