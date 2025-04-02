@@ -70,7 +70,7 @@ export default class EditCar extends Component {
         onChangeiD(e){
             
             console.log('Logging: ' + e.target.value)
-            axios.get('http://localhost:5000/cars/'+e.target.value)
+            axios.get('https://cardealer-backend-ixph.onrender.com/cars/'+e.target.value)
             .then(response => {
                 console.log('logging: ' + response.data.picture)
                 this.setState({
@@ -101,7 +101,7 @@ export default class EditCar extends Component {
 
             console.log(car);
 
-            axios.post('http://localhost:5000/cars/update/'+this.state.iD, car)
+            axios.post('https://cardealer-backend-ixph.onrender.com/cars/update/'+this.state.iD, car)
                 .then(res => console.log(res.data));
         
         window.location = '/';
