@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function NewCar() {
+export default function NewCar({ onAdded }) {
     const [picture, setPicture] = useState('');
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
@@ -22,10 +22,13 @@ export default function NewCar() {
         console.log(car);
 
         axios.post('http://localhost:5000/cars/add', car)
-            .then((res) => console.log(res.data))
-            .finally(() => {
-                window.location = '/';
-            });
+            .then((res) => {
+                console.log(res.data);
+                if (onAdded) {
+                    onAdded();
+                }
+            })
+            .catch((error) => console.log(error));
     };
 
     return (

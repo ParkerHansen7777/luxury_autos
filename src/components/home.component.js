@@ -1,5 +1,4 @@
 import './page.css';
-import React, { Component } from 'react';
 import CarsList from './cars.component';
 //import NewCar from './new_car.component';
 

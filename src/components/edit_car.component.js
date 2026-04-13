@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function EditCar() {
+export default function EditCar({ onEdited }) {
     const [cars, setCars] = useState([]);
     const [iD, setID] = useState('');
     const [picture, setPicture] = useState('');
@@ -55,10 +55,13 @@ export default function EditCar() {
         console.log(car);
 
         axios.post(`http://localhost:5000/cars/update/${iD}`, car)
-            .then((res) => console.log(res.data))
-            .finally(() => {
-                window.location = '/';
-            });
+            .then((res) => {
+                console.log(res.data);
+                if (onEdited) {
+                    onEdited();
+                }
+            })
+            .catch((error) => console.log(error));
     };
 
     return (

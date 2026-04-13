@@ -23,10 +23,14 @@ export default function CarsList() {
     const [deleting, setDeleting] = useState(false);
     const [iD, setID] = useState('');
 
-    useEffect(() => {
+    const fetchCars = () => {
         axios.get('http://localhost:5000/cars/')
             .then((response) => setCars(response.data))
             .catch((error) => console.log(error));
+    };
+
+    useEffect(() => {
+        fetchCars();
     }, []);
 
     const deleteCar = (e) => {
@@ -37,11 +41,12 @@ export default function CarsList() {
         }
 
         axios.delete(`http://localhost:5000/cars/${iD}`)
-            .then((res) => console.log(res.data))
-            .finally(() => {
-                setCars(cars.filter((el) => el._id !== iD));
-                window.location = '/';
-            });
+            .then((res) => {
+                console.log(res.data);
+                setCars((prevCars) => prevCars.filter((el) => el._id !== iD));
+                setID('');
+            })
+            .catch((error) => console.log(error));
     };
 
     const carList = () => cars.map((currentcar) => (
@@ -59,6 +64,16 @@ export default function CarsList() {
         setAdding(mode === 'add');
         setEditting(mode === 'edit');
         setDeleting(mode === 'delete');
+    };
+
+    const handleAddComplete = () => {
+        fetchCars();
+        setAdding(false);
+    };
+
+    const handleEditComplete = () => {
+        fetchCars();
+        setEditting(false);
     };
 
     let connected;
@@ -86,18 +101,20 @@ export default function CarsList() {
             {employee ? (
                 <div>
                     <h3 className="form-heading">Employee Menu</h3>
-                    <button onClick={() => handleToggle('add')}>Add Entry</button>
-                    <button onClick={() => handleToggle('edit')}>Edit Entry</button>
-                    <button onClick={() => handleToggle('delete')}>Delete Entry</button>
-                    <button onClick={() => {
-                        setPassword('');
-                        setEmployee(false);
-                    }}>
-                        Logout
-                    </button>
+                    <div className="admin-actions">
+                        <button className="admin-btn" onClick={() => handleToggle('add')}>Add Entry</button>
+                        <button className="admin-btn" onClick={() => handleToggle('edit')}>Edit Entry</button>
+                        <button className="admin-btn" onClick={() => handleToggle('delete')}>Delete Entry</button>
+                        <button className="admin-btn admin-btn-logout" onClick={() => {
+                            setPassword('');
+                            setEmployee(false);
+                        }}>
+                            Logout
+                        </button>
+                    </div>
                     <div>
-                        {adding && <NewCar />}
-                        {editting && <EditCar />}
+                        {adding && <NewCar onAdded={handleAddComplete} />}
+                        {editting && <EditCar onEdited={handleEditComplete} />}
                         {deleting && (
                             <div className="container">
                                 <h3 className="form-heading">Delete Car entry</h3>
