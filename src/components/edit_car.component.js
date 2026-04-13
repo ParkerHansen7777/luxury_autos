@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import axios from 'axios';
 
 export default class EditCar extends Component {
@@ -69,10 +69,10 @@ export default class EditCar extends Component {
         
         onChangeiD(e){
             
-            console.log('Logging: ' + e.target.value)
+            //console.log('Logging: ' + e.target.value)
             axios.get('http://localhost:5000/cars/'+e.target.value)
             .then(response => {
-                console.log('logging: ' + response.data.picture)
+                //console.log('logging: ' + response.data.picture)
                 this.setState({
                     iD: e.target.value,
                     picture: response.data.picture,
@@ -100,11 +100,14 @@ export default class EditCar extends Component {
             }
 
             console.log(car);
-
+            
             axios.post('http://localhost:5000/cars/update/'+this.state.iD, car)
-                .then(res => console.log(res.data));
+                .then(res => {
+                    console.log(res.data)
+                    window.location = '/';
+                });
         
-        window.location = '/';
+        
                 
         }
 
