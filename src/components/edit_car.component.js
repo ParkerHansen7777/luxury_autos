@@ -11,7 +11,7 @@ export default function EditCar({ onEdited }) {
     const [type, setType] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/cars/')
+        axios.get('https://cardealer-backend-ixph.onrender.com/cars/')
             .then((response) => setCars(response.data))
             .catch((error) => console.log(error));
     }, []);
@@ -29,7 +29,7 @@ export default function EditCar({ onEdited }) {
             return;
         }
 
-        axios.get(`http://localhost:5000/cars/${selectedId}`)
+        axios.get(`https://cardealer-backend-ixph.onrender.com/cars/${selectedId}`)
             .then((response) => {
                 const car = response.data;
                 setPicture(car.picture || '');
@@ -54,7 +54,7 @@ export default function EditCar({ onEdited }) {
 
         console.log(car);
 
-        axios.post(`http://localhost:5000/cars/update/${iD}`, car)
+        axios.post(`https://cardealer-backend-ixph.onrender.com/cars/update/${iD}`, car)
             .then((res) => {
                 console.log(res.data);
                 if (onEdited) {

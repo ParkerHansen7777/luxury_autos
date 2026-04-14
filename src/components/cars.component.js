@@ -24,7 +24,7 @@ export default function CarsList() {
     const [iD, setID] = useState('');
 
     const fetchCars = () => {
-        axios.get('http://localhost:5000/cars/')
+        axios.get('https://cardealer-backend-ixph.onrender.com/cars/')
             .then((response) => setCars(response.data))
             .catch((error) => console.log(error));
     };
@@ -40,7 +40,7 @@ export default function CarsList() {
             return;
         }
 
-        axios.delete(`http://localhost:5000/cars/${iD}`)
+        axios.delete(`https://cardealer-backend-ixph.onrender.com/cars/${iD}`)
             .then((res) => {
                 console.log(res.data);
                 setCars((prevCars) => prevCars.filter((el) => el._id !== iD));
