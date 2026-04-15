@@ -9,12 +9,16 @@ export default function EditCar({ onEdited }) {
     const [model, setModel] = useState('');
     const [seats, setSeats] = useState('');
     const [type, setType] = useState('');
+    
+    const hostname = process.env.REACT_APP_BACKEND_HOSTNAME || 'localhost';
+    const port = process.env.REACT_APP_BACKEND_PORT || 5000;
+    const baseURL = `http://${hostname}:${port}`;
 
     useEffect(() => {
-        axios.get('https://cardealer-backend-ixph.onrender.com/cars/')
+        axios.get(`${baseURL}/cars/`)
             .then((response) => setCars(response.data))
             .catch((error) => console.log(error));
-    }, []);
+    }, [baseURL]);
 
     const onChangeID = (e) => {
         const selectedId = e.target.value;
@@ -29,7 +33,7 @@ export default function EditCar({ onEdited }) {
             return;
         }
 
-        axios.get(`https://cardealer-backend-ixph.onrender.com/cars/${selectedId}`)
+        axios.get(`${baseURL}/cars/${selectedId}`)
             .then((response) => {
                 const car = response.data;
                 setPicture(car.picture || '');
@@ -54,7 +58,7 @@ export default function EditCar({ onEdited }) {
 
         console.log(car);
 
-        axios.post(`https://cardealer-backend-ixph.onrender.com/cars/update/${iD}`, car)
+        axios.post(`${baseURL}/cars/update/${iD}`, car)
             .then((res) => {
                 console.log(res.data);
                 if (onEdited) {
