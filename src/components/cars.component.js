@@ -4,8 +4,8 @@ import './page.css';
 import EditCar from './edit_car.component';
 import NewCar from './new_car.component';
 
-const hostname = process.env.HOSTNAME || 'localhost';
-const port = process.env.PORT || 5000;
+const hostname = process.env.REACT_APP_BACKEND_HOSTNAME || 'localhost';
+const port = process.env.REACT_APP_BACKEND_PORT || 5000;
 const baseURL = `http://${hostname}:${port}`;
 
 
