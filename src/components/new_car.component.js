@@ -10,7 +10,7 @@ export default function NewCar({ onAdded }) {
 
     const hostname = process.env.REACT_APP_BACKEND_HOSTNAME || 'localhost';
     const port = process.env.REACT_APP_BACKEND_PORT || 5000;
-    const baseURL = `http://${hostname}:${port}`;
+    const baseURL = `${hostname}:${port}`;
 
     const onSubmit = (e) => {
         e.preventDefault();
