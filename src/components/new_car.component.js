@@ -8,9 +8,7 @@ export default function NewCar({ onAdded }) {
     const [seats, setSeats] = useState('');
     const [type, setType] = useState('');
 
-    const hostname = process.env.REACT_APP_BACKEND_HOSTNAME || 'localhost';
-    const port = process.env.REACT_APP_BACKEND_PORT || 5000;
-    const baseURL = `${hostname}:${port}`;
+    const baseURL = process.env.REACT_APP_BACKEND_HOSTNAME || 'localhost';
 
     const onSubmit = (e) => {
         e.preventDefault();
