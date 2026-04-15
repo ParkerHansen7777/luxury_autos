@@ -8,6 +8,10 @@ export default function NewCar({ onAdded }) {
     const [seats, setSeats] = useState('');
     const [type, setType] = useState('');
 
+    const hostname = process.env.HOSTNAME || 'localhost';
+    const port = process.env.PORT || 5000;
+    const baseURL = `http://${hostname}:${port}`;
+
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -21,7 +25,7 @@ export default function NewCar({ onAdded }) {
 
         console.log(car);
 
-        axios.post('http://localhost:5000/cars/add', car)
+        axios.post(`${baseURL}/cars/add`, car)
             .then((res) => {
                 console.log(res.data);
                 if (onAdded) {

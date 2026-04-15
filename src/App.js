@@ -5,8 +5,8 @@ import NewCar from './components/new_car.component'
 import PageNotFound from "./components/pageNotFound.component"
 import './components/page.css'
 function App() {
-  return (
-    
+	return (
+		
 		<Switch>
 			<Route exact path="/" component={ Home } />
 			<Route path="/cars" component={ NewCar } />

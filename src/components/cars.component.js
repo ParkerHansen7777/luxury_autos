@@ -4,6 +4,11 @@ import './page.css';
 import EditCar from './edit_car.component';
 import NewCar from './new_car.component';
 
+const hostname = process.env.HOSTNAME || 'localhost';
+const port = process.env.PORT || 5000;
+const baseURL = `http://${hostname}:${port}`;
+
+
 const Car = (props) => (
     <tr>
         <td className="img-container"><img className="picture" src={props.car.picture} alt="" /></td>
@@ -24,7 +29,7 @@ export default function CarsList() {
     const [iD, setID] = useState('');
 
     const fetchCars = () => {
-        axios.get('http://localhost:5000/cars/')
+        axios.get(`${baseURL}/cars/`)
             .then((response) => setCars(response.data))
             .catch((error) => console.log(error));
     };
@@ -40,7 +45,7 @@ export default function CarsList() {
             return;
         }
 
-        axios.delete(`http://localhost:5000/cars/${iD}`)
+        axios.delete(`${baseURL}/cars/${iD}`)
             .then((res) => {
                 console.log(res.data);
                 setCars((prevCars) => prevCars.filter((el) => el._id !== iD));
